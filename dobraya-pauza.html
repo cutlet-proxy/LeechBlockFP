@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Добрая пауза</title>
+  <style>
+    :root { color-scheme: light; --bg:#f2f4ec; --card:#fffef8; --ink:#293e37; --muted:#68796e; --accent:#365f4b; --line:#dce3d6; --wash:#e6eddf; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; min-height:100svh; display:grid; place-items:center; padding:32px 20px; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; background:radial-gradient(ellipse at 10% 10%,#dfe8d980,transparent 50%),radial-gradient(ellipse at 95% 95%,#eee1cd70,transparent 50%); }
+    main { position:relative; width:min(100%,660px); }
+    .eyebrow { display:flex; align-items:center; gap:9px; margin:0 0 22px 4px; color:var(--muted); font-size:12px; letter-spacing:.16em; text-transform:uppercase; }
+    .dot { width:7px; height:7px; background:#77956b; border-radius:50%; }
+    .card { padding:44px 46px 34px; background:var(--card); border:1px solid var(--line); border-radius:30px; box-shadow:0 18px 65px #243b2d08; }
+    .art { width:104px; height:104px; margin-bottom:28px; }
+    h1 { margin:0 0 17px; font-size:clamp(32px,6vw,46px); line-height:1.12; letter-spacing:-.045em; font-weight:650; }
+    .intro { margin:0; max-width:460px; color:var(--muted); font-size:16px; line-height:1.7; }
+    .phrase-box { margin:30px 0 22px; padding:24px; min-height:142px; display:flex; align-items:center; background:var(--wash); border-radius:18px; }
+    #phrase { margin:0; font-size:clamp(19px,3.5vw,23px); font-weight:500; line-height:1.5; letter-spacing:-.015em; }
+    button { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:12px 20px; border:1px solid var(--accent); border-radius:100px; background:var(--accent); color:#fff; font:inherit; font-size:14px; font-weight:600; cursor:pointer; transition:transform .15s,filter .15s; }
+    button:hover { filter:brightness(1.12); }
+    button:active { transform:scale(.98); }
+    button:focus-visible { outline:3px solid #a4b88a; outline-offset:4px; }
+    button svg { width:17px; height:17px; }
+    .divider { height:1px; margin:30px 0 20px; background:var(--line); }
+    .footnote { margin:0; color:var(--muted); font-size:13px; line-height:1.65; }
+    footer { margin-top:20px; text-align:center; color:var(--muted); font-size:12px; line-height:1.7; }
+    @media (max-width:480px) { body { padding:24px 16px; } .card { padding:30px 24px 26px; border-radius:24px; } .art { margin-bottom:22px; width:88px; height:88px; } .phrase-box { padding:20px; min-height:155px; } button { width:100%; } }
+    @media (prefers-color-scheme:dark) { :root { color-scheme:dark; --bg:#1c2723; --card:#24322c; --ink:#e4ecdf; --muted:#acbcad; --accent:#466c54; --line:#3b4c40; --wash:#304436; } body::before { opacity:.12; } }
+    @media (prefers-reduced-motion:reduce) { button { transition:none; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Маленькая передышка</p>
+    <section class="card" aria-labelledby="title">
+      <svg class="art" viewBox="0 0 104 104" fill="none" aria-hidden="true">
+        <circle cx="52" cy="52" r="52" fill="#DFE8D7"/>
+        <path d="M52 73V43" stroke="#547653" stroke-width="3" stroke-linecap="round"/>
+        <path d="M52 57C32 59 28 46 29 37C44 36 55 41 52 57Z" fill="#91AB7D"/>
+        <path d="M52 47C51 29 62 23 74 25C75 39 66 49 52 47Z" fill="#658C60"/>
+        <path d="M35 68H69L65 84H39L35 68Z" fill="#BF9979"/>
+        <path d="M34 68H70" stroke="#A58063" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="78" cy="56" r="3" fill="#C7B66D"/>
+        <path d="M22 62H28M25 59V65" stroke="#A7B78A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <h1 id="title">Можно просто выдохнуть.</h1>
+      <p class="intro">Этот сайт пока на паузе. А у тебя есть немного пространства для чего-нибудь другого — или просто для паузы.</p>
+      <div class="phrase-box"><p id="phrase" role="status" aria-live="polite" aria-atomic="true">Пауза — тоже часть маршрута. Даже навигатор иногда говорит: «Вы прибыли».</p></div>
+      <button id="next" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M6.1 7a7 7 0 0 1 11.5-1L20 9M4 15l2.4 3A7 7 0 0 0 17.9 17"/></svg>Ещё добрая фраза</button>
+      <noscript><p class="footnote">Для смены фраз нужен JavaScript. А выдохнуть можно и так.</p></noscript>
+      <div class="divider"></div>
+      <p class="footnote">Если хочется: глоток воды, взгляд в окно или один маленький шаг к своему делу. Выбирай то, что сейчас подходит.</p>
+    </section>
+    <footer>Здесь ничего не нужно доказывать. Даже сегодня.</footer>
+  </main>
+  <script>
+    (() => {
+      'use strict';
+      const phrases = [
+        'Пауза — тоже часть маршрута. Даже навигатор иногда говорит: «Вы прибыли».',
+        'Ты не обязан превращать каждую минуту в достижение. Минута может просто побыть минутой.',
+        'Плечи можно опустить. Они сегодня не работают вешалкой для всего мира.',
+        'Можно начать с малого. Очень малого. Размером с «открыть нужный файл».',
+        'Интернет немного подождёт. У него, кажется, ещё есть чем заняться.',
+        'Сейчас можно просто посмотреть в окно. Там графика без подписки.',
+        'Один спокойный вдох. Один спокойный выдох. Уже неплохой дуэт.',
+        'Если день идёт медленно, можно идти рядом с ним.',
+        'Не обязательно разгоняться. У черепах тоже бывают прекрасные прогулки.',
+        'Глоток воды — маленький спа-салон, который всегда под рукой.',
+        'Твоё внимание может немного отдохнуть. Ему тоже положен удобный стул.',
+        'Сегодня можно быть человеком, а не списком выполненных задач.',
+        'Следующий шаг не обязан быть великим. Удобный вполне подойдёт.',
+        'Можно потянуться, как кот. Опыт работы котом не требуется.',
+        'Всё сразу — необязательная программа. Что-нибудь одно уже звучит уютнее.',
+        'Мысль «а что я хотел сделать?» можно встретить без допроса и строгой лампы.',
+        'Можно начать заново с этого места. Красивый понедельник для этого не нужен.',
+        'Небольшая передышка ничего не должна окупать. Пусть будет подарком.',
+        'У мира есть запас новостей. А у тебя сейчас может быть запас тишины.',
+        'Делать в своём темпе — вполне допустимый способ делать.',
+        'Устрой глазам мини-отпуск: посмотри на что-нибудь подальше. Чемодан не нужен.',
+        'Даже чай сначала настаивается. Можно немного побыть чаем.',
+        'Сложный день не делает тебя сложным человеком. Можно отнестись к себе помягче.',
+        'Если хочется отдохнуть, отдых не обязательно превращать в полезный проект.',
+        'Твоё дело может начаться с одного любопытного «а если попробовать вот так?».',
+        'Этот маленький промежуток времени — твой. Можно выбрать, чем его наполнить.',
+        'Ты уже здесь. Можно не торопиться со следующим «надо».',
+        'Иногда лучший план на ближайшую минуту — удобно сесть.'
+      ];
+      const label = document.getElementById('phrase');
+      let current = -1;
+      let bag = [];
+      function nextPhrase() {
+        if (!bag.length) {
+          bag = phrases.map((_, index) => index);
+          for (let i = bag.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [bag[i], bag[j]] = [bag[j], bag[i]];
+          }
+          if (bag[bag.length - 1] === current) {
+            [bag[0], bag[bag.length - 1]] = [bag[bag.length - 1], bag[0]];
+          }
+        }
+        current = bag.pop();
+        label.textContent = phrases[current];
+      }
+      document.getElementById('next').addEventListener('click', nextPhrase);
+      nextPhrase();
+    })();
+  </script>
+</body>
+</html>
